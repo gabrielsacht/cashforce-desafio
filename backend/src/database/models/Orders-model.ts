@@ -72,7 +72,7 @@ Orders.init({
     type: STRING,
     defaultValue: null,
   },
-  CTE: {
+  cte: {
     type: STRING,
     defaultValue: null,
   },
@@ -133,14 +133,16 @@ Orders.init({
 
 // cnpjs, users, buyers e providers
 
-Cnpjs.belongsTo(Orders, { foreignKey: 'cnpjId', as: 'cnpjId' });
-Users.belongsTo(Orders, { foreignKey: 'userId', as: 'userId' });
-Buyers.belongsTo(Orders, { foreignKey: 'buyerId', as: 'buyerId' });
-Providers.belongsTo(Orders, { foreignKey: 'providerId', as: 'providerId' });
+Cnpjs.hasMany(Orders, { foreignKey: 'cnpjId', as: 'cnpjn' });
+Users.hasMany(Orders, { foreignKey: 'userId', as: 'user' });
+Buyers.hasMany(Orders, { foreignKey: 'buyerId', as: 'buyer' });
+Providers.hasMany(Orders, { foreignKey: 'providerId', as: 'provider' });
 
-Orders.hasMany(Cnpjs, { foreignKey: 'cnpjId', as: 'cnpjId' });
-Orders.hasMany(Users, { foreignKey: 'userId', as: 'userId' });
-Orders.hasMany(Buyers, { foreignKey: 'buyerId', as: 'buyerId' });
-Orders.hasMany(Providers, { foreignKey: 'providerId', as: 'providerId' });
+Orders.belongsTo(Cnpjs, { foreignKey: 'cnpjId', as: 'cnpjn' });
+Orders.belongsTo(Users, { foreignKey: 'userId', as: 'user' });
+Orders.belongsTo(Buyers, { foreignKey: 'buyerId', as: 'buyer' });
+Orders.belongsTo(Providers, { foreignKey: 'providerId', as: 'provider' });
+
+
 
 export default Orders;
