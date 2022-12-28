@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('buyers', {
+    await queryInterface.createTable('sponsors', {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -80,6 +80,19 @@ module.exports = {
         type: Sequelize.STRING(255),
         defaultValue: null
       },
+      bank: {
+        type: Sequelize.STRING(255),
+        defaultValue: null
+      },
+      bankAgency: {
+        type: Sequelize.STRING(255),
+        defaultValue: null,
+        field: 'bank_agency'
+      },
+      account: {
+        type: Sequelize.STRING(255),
+        defaultValue: null
+      },
       phoneNumber: {
         type: Sequelize.STRING(255),
         defaultValue: null,
@@ -107,20 +120,20 @@ module.exports = {
       cnpjId: {
         type: Sequelize.INTEGER(11),
         defaultValue: null,
-        field: 'cnpj_id'
-      },
-      confirm: {
-        type: Sequelize.INTEGER(1),
-        defaultValue: 1
+        field: 'cnpj_id',
+        references: {
+          model: 'cnpjs',
+          key: 'id',
+        }
       },
       email: {
         type: Sequelize.STRING(255),
         defaultValue: null
-      }
+      },
     })
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('buyers')
+    await queryInterface.dropTable('sponsors')
   }
 }
