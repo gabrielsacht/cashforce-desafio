@@ -1,5 +1,9 @@
 import { Model, INTEGER, STRING, DECIMAL, DATE, TINYINT } from 'sequelize';
 import db from '.';
+import Cnpjs from './Cnpjs-model';
+import Users from './Users-model';
+import Buyers from './Buyers-model';
+import Providers from './Providers-model';
 
 class Orders extends Model {
 declare id: number;
@@ -126,5 +130,17 @@ Orders.init({
   underscored: true,
   timestamps: false,
 });
+
+// cnpjs, users, buyers e providers
+
+Cnpjs.belongsTo(Orders, { foreignKey: 'cnpjId', as: 'cnpjId' });
+Users.belongsTo(Orders, { foreignKey: 'userId', as: 'userId' });
+Buyers.belongsTo(Orders, { foreignKey: 'buyerId', as: 'buyerId' });
+Providers.belongsTo(Orders, { foreignKey: 'providerId', as: 'providerId' });
+
+Orders.hasMany(Cnpjs, { foreignKey: 'cnpjId', as: 'cnpjId' });
+Orders.hasMany(Users, { foreignKey: 'userId', as: 'userId' });
+Orders.hasMany(Buyers, { foreignKey: 'buyerId', as: 'buyerId' });
+Orders.hasMany(Providers, { foreignKey: 'providerId', as: 'providerId' });
 
 export default Orders;
