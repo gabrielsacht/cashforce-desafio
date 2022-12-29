@@ -22,6 +22,23 @@ class Table extends React.Component {
     }
     
   }
+
+  getStatus = (orderStatusNum) =>{
+    const status = [
+      'Pendente de confirmação',
+      'Pedido confirmado',
+      'Não reconhece o pedido',
+      'Mercadoria não recebida',
+      'Recebida com avaria',
+      'Devolvida',
+      'Recebida com devolução parcial',
+      'Recebida e confirmada',
+      'Pagamento Autorizado'
+    ];
+
+    return status[orderStatusNum]
+
+  }
   render() {
     const { orders } = this.state;
     return (
@@ -57,13 +74,13 @@ class Table extends React.Component {
                     {order.provider.name}
                   </td>
                   <td>
-                    {order.emissionDate}
+                    {new Date(order.emissionDate).toLocaleDateString()}
                   </td>
                   <td>
-                    {order.value}
+                    {Intl.NumberFormat('en-US', {style: 'currency', currency: 'BRL'}).format(order.value) }
                   </td>
                   <td>
-                    {order.orderStatusBuyer}
+                    {this.getStatus(order.orderStatusBuyer)}
                   </td>
                   <td>
                     <button
