@@ -2,6 +2,8 @@
   Esse projeto foi desenvolvido como parte de um desafio tecnico para um processo seletivo. O objetivo é criar uma aplicação full-stack 
   para a visualização de informações referentes a notas fiscais.
   Foi utilizado **Typescript**, **express** e **sequelize** para fazer a api e **mysql** para o banco de dados. O frontend foi feito com **React.js**
+  
+![Screenshot](screenshot.png)
 
 ## Como rodar o projeto
 Para rodar o projeto você terá que ter instalado o mysql em sua máquina local!
