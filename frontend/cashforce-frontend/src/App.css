@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
+:root {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'DM Sans', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+aside {
+  height: 900px; 
+  width: 258px;
+  position: fixed;
+  background-color: #FBFDFE;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.aside-main {
   display: flex;
   flex-direction: column;
+}
+
+.aside-list {
+  display: flex;
+  padding-bottom: 30px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 16px;
+  color: #00AD8C;
 }
 
-.App-link {
-  color: #61dafb;
+.main {
+  position: absolute;
+  margin-left: 258px;
+  box-shadow: 0px 10px 30px rgba(225, 229, 236, 0.5);
+  height: 900px;
+  padding-left: 48px;
+  font-size: 12px;
+  width: 78.55%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-header-blank {
+  height: 64px;
+  border-bottom: 1px solid #DFE2EB;
+  margin-left: -48px;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px;
+}
+.main-header p {
+  color: #727D94;
+}
+.main-header-title {
+  display: flex;
+  gap: 9px;
+}
+
+.main-header-title h2 {
+  color: #021B51;
+}
+
+.main-header-title h2 {
+  font-size: 24px;
+}
+
+.main-header-paragraph {
+  position: relative;
+  top: -30px;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  gap: 16px;
+}
+
+.table-row-first {
+  display: flex;
+  gap: 94px;
+  color: #A1A8B8;
+  font-weight: 700;
+}
+
+.table-row-first th {
+  position: relative;
+}
+.table-row-first th:nth-child(1) {
+  left: 25px;
+}
+.table-row-first th:nth-child(2) {
+  left: -20px;
+}
+.table-row-first th:nth-child(3) {
+  left: -17px;
+}
+.table-row-first th:nth-child(4) {
+  left: -17px;
+}
+.table-row-first th:nth-child(5) {
+  left: -17px;
+}
+
+.table-row {
+  color: #4D5566;
+  border: 1px solid #DFE2EB;
+  border-radius: 6px;
+  height: 48px;
+  width: 1117px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.table-row td {
+  position: relative;
+  width: 100px;
+}
+.table-row td:nth-child(1) {
+  width: 100px;
+  left: 25px;
+}
+.table-row td:nth-child(6) {
+  width: 150px;
+}
+.table-row td:nth-child(7) {
+  width: 165px;
+}
+
+.table-row-btn {
+  font-size: 12px;
+  color: #4D5566;
+  border: 1px solid #CAD3FF ;
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  text-decoration: none;
+  padding: 8px 29px;
+}
+
+.txt-green {
+  color: #00AD8C;
+}
+
+#selected {
+  background-color: #00AD8C;
+  width: 4px;
+  height: 64px;
+  border-radius: 4px;
+  position: relative;
+  left: -8px;
+}
+
+#cashforce-logo {
+  padding: 20px;
 }

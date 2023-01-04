@@ -18,12 +18,12 @@ class Table extends React.Component {
 
       this.setState({ orders });
     } catch (error) {
-      console.log({message: 'erro ao comunicar com o backend', error})
+      console.log({ message: 'erro ao comunicar com o backend', error })
     }
-    
+
   }
 
-  getStatus = (orderStatusNum) =>{
+  getStatus = (orderStatusNum) => {
     const status = [
       'Pendente de confirmação',
       'Pedido confirmado',
@@ -42,19 +42,20 @@ class Table extends React.Component {
   render() {
     const { orders } = this.state;
     return (
-      <><div>
-        <div>
-          <h2>Notas fiscais</h2>
+      <div className='main'>
+        <div className='main-header-blank' ></div>
+        <div className='main-header'>
+          <div className='main-header-title'>
+            <img src="./images/cf/Vectorhands-2.svg" alt="handlogo" />
+            <h2>Notas fiscais</h2>
         </div>
-        <div>
-          <p>Visualize as notas fiscais que você tem</p>
-        </div>
-      </div><table className="table">
+          <p className='main-header-paragraph'>Visualize as notas fiscais que você tem.</p>
+        </div><table className="table">
           <thead>
             <tr className="table-row-first">
               <th>NOTA FISCAL</th>
               <th>SACADO</th>
-              <th>CEDENTE de pagamento</th>
+              <th>CEDENTE</th>
               <th>EMISSÃO</th>
               <th>VALOR</th>
               <th>STATUS</th>
@@ -76,14 +77,15 @@ class Table extends React.Component {
                   <td>
                     {new Date(order.emissionDate).toLocaleDateString()}
                   </td>
-                  <td>
-                    {Intl.NumberFormat('en-US', {style: 'currency', currency: 'BRL'}).format(order.value) }
+                  <td className='txt-green'>
+                    {Intl.NumberFormat('en-US', { style: 'currency', currency: 'BRL' }).format(order.value)}
                   </td>
-                  <td>
+                  <td className='txt-green'>
                     {this.getStatus(order.orderStatusBuyer)}
                   </td>
                   <td>
                     <button
+                    className='table-row-btn'
                       id={order.orderNumber}
                       type="button"
                     >
@@ -94,7 +96,9 @@ class Table extends React.Component {
               ))
             )}
           </tbody>
-        </table></>
+        </table>
+      </div>
+
     );
   }
 }
